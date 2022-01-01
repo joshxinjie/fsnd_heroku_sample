@@ -126,6 +126,8 @@ flask db init
 flask db migrate
 ```
 
+Add a `.gitkeep` file in `/app/migrations/versions` to commit the empty folder `/app/migrations/versions`.
+
 8. Add and push to heroku:
 ```
 git add .
