@@ -89,3 +89,13 @@ If pushing from main branch to Heroku's master branch
 ```
 git push heroku main:master
 ```
+
+6. Run migrations
+
+Once your app is deployed, run migrations by running: 
+```
+heroku run python manage.py db upgrade --app name_of_your_application
+
+# Example
+heroku run python manage.py db upgrade --app fsnd-heroku-sample-xj
+```

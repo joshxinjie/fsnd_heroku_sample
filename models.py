@@ -2,6 +2,7 @@ import os
 from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
+from flask_migrate import Migrate
 
 database_path = os.environ['DATABASE_URL']
 if database_path.startswith("postgres://"):
@@ -19,6 +20,7 @@ def setup_db(app, database_path=database_path):
     db.app = app
     db.init_app(app)
     db.create_all()
+    migrate = Migrate(app, db)
 
 
 '''
