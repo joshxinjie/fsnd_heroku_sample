@@ -1,6 +1,6 @@
 # fsnd_heroku_sample
 
-1. Create a Heroku app:
+## 1. Create a Heroku app:
 ```
 heroku create name_of_your_app
 
@@ -15,7 +15,7 @@ Creating ⬢ fsnd-heroku-sample-xj... done
 https://fsnd-heroku-sample-xj.herokuapp.com/ | https://git.heroku.com/fsnd-heroku-sample-xj.git
 ```
 
-2. Add git remote for Heroku to local repository
+## 2. Add git remote for Heroku to local repository
 
 Using the git url obtained from the last step, in terminal run: 
 ```
@@ -36,7 +36,7 @@ Which returns:
 set git remote heroku to https://git.heroku.com/fsnd-heroku-sample-xj.git
 ```
 
-3. Add postgresql add on for our database
+## 3. Add postgresql add on for our database
 
 Heroku has an addon for apps for a postgresql database instance. Run this code in order to create your database and connect it to your application: 
 ```
@@ -74,11 +74,11 @@ A sample output:
 DATABASE_URL: postgres://hsochozkgbdfbp:75815ee36ad37e413842d6a998d9502531a5508303fb4498ca14b4b4e34e65ef@ec2-3-212-172-25.compute-1.amazonaws.com:5432/d86i8rkve1ff2h
 ```
 
-4. Fix our configurations in Heroku
+## 4. Fix our configurations in Heroku
 
 In the browser, go to your Heroku Dashboard and access your application's settings. Reveal your config variables and start adding all the required environment variables for your project. For the purposes of the sample project, just add one additional one - ‘EXCITED’ and set it to true or false in all lowercase. 
 
-5. Commit changes and push it!
+## 5. Commit changes and push it!
 ```
 git add .
 git commit -am "make it better"
@@ -90,7 +90,7 @@ If pushing from main branch to Heroku's master branch
 git push heroku main:master
 ```
 
-6. Create and setup virtual environment
+## 6. Create and setup virtual environment
 
 Create a virtual environment `herokusample`:
 ```
@@ -107,12 +107,12 @@ Install requirements
 pip install -r requirements.txt
 ```
 
-7. Export the DATABASE_URL:
+## 7. Export the DATABASE_URL:
 ```
 export DATABASE_URL=postgres://hsochozkgbdfbp:75815ee36ad37e413842d6a998d9502531a5508303fb4498ca14b4b4e34e65ef@ec2-3-212-172-25.compute-1.amazonaws.com:5432/d86i8rkve1ff2h
 ```
 
-8. Run:
+## 8. Run:
 ```
 flask db init
 flask db migrate
@@ -120,14 +120,14 @@ flask db migrate
 
 Add a `.gitkeep` file in `/app/migrations/versions` to commit the empty folder `/app/migrations/versions`.
 
-9. Add and push to heroku:
+## 9. Add and push to heroku:
 ```
 git add .
 git commit -am "add migrations folder"
 git push heroku main:master
 ```
 
-10. Run migrations
+## 10. Run migrations
 
 Once your app is deployed, run migrations by running: 
 ```
@@ -135,4 +135,12 @@ heroku run python manage.py db upgrade --app name_of_your_application
 
 # Example
 heroku run python manage.py db upgrade --app fsnd-heroku-sample-xj
+```
+
+A sample output:
+```
+ ›   Warning: heroku update available from 7.59.0 to 7.59.2.
+Running python manage.py db upgrade on ⬢ fsnd-heroku-sample-xj... up, run.4906 (Free)
+INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+INFO  [alembic.runtime.migration] Will assume transactional DDL.
 ```
