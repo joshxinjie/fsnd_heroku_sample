@@ -84,3 +84,8 @@ git add .
 git commit -am "make it better"
 git push heroku master
 ```
+
+If pushing from main branch to Heroku's master branch
+```
+git push heroku main:master
+```
