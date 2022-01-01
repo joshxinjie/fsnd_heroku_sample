@@ -90,7 +90,55 @@ If pushing from main branch to Heroku's master branch
 git push heroku main:master
 ```
 
-6. Run migrations
+6. Pull the Heroku DB to your local machine
+```
+heroku pg:pull DATABASE_URL your_new_local_database_name -a your_heroku_app_name
+
+# Example
+heroku pg:pull DATABASE_URL herokusample -a fsnd-heroku-sample-xj
+```
+
+X. Create and setup virtual environment
+
+Create a virtual environment `herokusample`:
+```
+python3 -m virtualenv herokusample
+```
+
+Activate the virtual environment `herokusample`:
+```
+source herokusample/bin/activate
+```
+
+Install requirements
+```
+pip install -r requirements.txt
+```
+
+Export:
+```
+export DATABASE_URL=postgres://hsochozkgbdfbp:75815ee36ad37e413842d6a998d9502531a5508303fb4498ca14b4b4e34e65ef@ec2-3-212-172-25.compute-1.amazonaws.com:5432/d86i8rkve1ff2h
+```
+
+7. Run:
+```
+flask db init
+flask db migrate
+```
+
+8. Add and push to heroku:
+```
+git add .
+git commit -am "add migrations folder"
+git push heroku main:master
+```
+
+9. Run updgrade command on heroku
+```
+heroku run flask db upgrade -a fsnd-heroku-sample-xj
+```
+
+X. Run migrations
 
 Once your app is deployed, run migrations by running: 
 ```
